@@ -1,0 +1,34 @@
+// Binary Search without recursions
+#include <iostream>
+using namespace std;
+int bs (int *arr, int size ,int key)
+{
+    int s = 0;
+    int e = size-1;
+    int mid = s+(e-s)/2;
+    
+   for (int i = 0; i<size-1; i++)
+   {
+    if (arr[mid]==key)
+    {
+     return arr[mid];
+        
+    }
+    if(arr[mid]<key)
+    {
+        s =mid+1;
+    }
+    else{
+        e= mid-1;
+    }
+    
+       mid = s+(e-s)/2;
+   }
+   return -1;
+}
+
+int main() {
+    int arr[]={1,2,3,4,5,6};
+    cout<<bs(arr,6,8);
+    return 0;
+}
