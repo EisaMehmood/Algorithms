@@ -1,0 +1,30 @@
+// Peak Value using recursion
+#include <iostream>
+using namespace std;
+int pv (int * arr, int s , int e )
+{
+    //Base condition
+    if(s>e)
+    return -1;
+    int mid =s+(e-s)/2;
+    //
+    if(arr[mid]>arr[mid+1] && arr[mid]>arr[mid-1])
+    {
+        return mid;
+    }
+    else if(arr[mid]<arr[mid+1])
+    {
+      return  pv(arr,mid+1,e);
+    }
+    else
+    {
+      return  pv(arr,s,mid-1);
+    }
+}
+
+int main() {
+   int arr[]={1,2,3,15,4,5,3,2};
+   cout<< pv(arr,0,6);
+
+    return 0;
+}
