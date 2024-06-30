@@ -1,0 +1,29 @@
+// Insertion Sort Using Recursion
+#include <iostream>
+using namespace std;
+
+void is(int *arr, int n) {
+    // base case
+    if (n <= 1)
+        return;
+         // Recursive function
+         
+   is(arr, n-1);
+   // Processing
+    for (int i = n-1; i >= 1; i--) {
+        if (arr[i] < arr[i-1]) {
+            swap(arr[i], arr[i-1]);
+        }
+    }
+   
+}
+
+int main() {
+    int arr[] = {12, 45, 23, 52, 29, 8};
+    is(arr, 6);
+
+    for (int i = 0; i < 6; i++) {
+        cout << arr[i] << " ";
+    }
+    return 0;
+}
