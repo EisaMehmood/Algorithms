@@ -1,0 +1,77 @@
+
+// Merge Sort using Recursion
+#include <iostream>
+using namespace std;
+void merge(int *arr , int n , int s , int e)
+{     //mid
+      int mid = s+(e-s)/2;
+      // lenght
+       int l1 = mid-s+1;
+       int l2 = e-mid;
+       //Dynamically array created;
+       int *f1 = new int [l1];
+       int *f2 = new int [l2];
+       
+       // Copy array
+        for(int i = 0 ; i<l1 ; i++)
+        {
+            f1[i] = arr[s+i] ;
+        }
+        for(int j = 0 ; j<l2; j++)
+        {
+            f2[j] = arr[mid+1+j] ;
+        }
+       // merge 2 Sorted arrays
+       int i=0; int j =0;
+       int k =s;
+      while(i<l1 && j<l2)
+      {
+          
+          if(f1[i]<f2[j])
+          {
+              arr[k++] = f1[i++];
+              
+          }
+          else
+          {
+                arr[k++] = f2[j++];
+          }
+          
+      }
+      // Copy the remaining elements of L, if there are any
+      
+      while(i<l1)
+      {   
+          arr[k++] = f1[i++];
+          
+      }
+      
+       while(i<l2)
+      {   
+        arr[k++] = f2[j++];
+          
+      }
+}
+void mergesort(int * arr , int n, int s , int e)
+{
+    //Base 
+    if(s>=e)
+    return;
+    //mid
+    int mid = s+(e-s)/2;
+    // sorting
+     mergesort(arr,n, s, mid);
+     mergesort(arr,n,mid+1, e);
+     // Recursive function
+     merge(arr,n,s,e);
+}
+int main() {
+  int arr[]= {1,2,3,4,5,14,12,13,16,10,7};
+  int n = 11;
+   mergesort(arr,11,0,11-1);
+   for(int i =0 ;i<n ;i++)
+   {
+       cout<<arr[i]<<" ";
+   }
+    return 0;
+}
