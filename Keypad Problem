@@ -12,30 +12,32 @@ void keypad(string s , string *arr)
         v.push_back(s[i]-'0');
         cout<<v[i]<<endl;
     }
+   
     string e = arr[v[0]];
-    
+   
     //abc extract
     for(int j =0; j<e.length();j++)
     {
         //a -c
-         i
-        string v2 = arr[v[c]];
-        //
+  
+    for(int i = 1; i<v.size();i++){
+        string v2 = arr[v[i]];
     for(int k =0; k<v2.length();k++)
       {
         string ans = string(1,e[j])+string(1,v2[k]);
         cout<<ans<<" ";
       }
+      }
       //
      
     }
     
-  
+     
     
 }
 int main() {
   string arr[]={" ", " ","abc", "def","ghi", "jkl","mno","pqrs","tuv","wxyz"};
-    string s = "234";
+    string s = "2345";
     keypad(s,arr);
 
     return 0;
